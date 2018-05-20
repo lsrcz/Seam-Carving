@@ -6,11 +6,53 @@ import cv2
 import os
 #from multiprocessing import Pool
 import time
+import torch
+import torch.nn.functional as F
 
 # NUM_OF_PROCESS = 8
 # pool = Pool(processes=NUM_OF_PROCESS)
 plt.ion()
 #ne.set_num_threads(ne.detect_number_of_cores() // 2)
+
+def computeGDTorch(npimg):
+    tmp = npimg.astype(np.float32)
+    tmp = torch.from_numpy(tmp)
+
+    x = tmp.shape[0]
+    y = tmp.shape[1]
+    time = torch.ones((x,y)) * 5
+    time[0, 0] = time[0, y - 1] = time[x - 1, 0] = time[x - 1, y - 1] = 3
+    time[1: x - 1, 1: y - 1] += torch.ones((x - 2, y - 2)) * 3
+
+    gdsum = torch.zeros((x, y, 3))
+    V = torch.abs(tmp[0:x - 1, :, :] - tmp[1:x, :, :])
+    H = torch.abs(tmp[:, 0:y - 1, :] - tmp[:, 1:y, :])
+    lurd = torch.abs(tmp[0:x - 1, 0:y - 1, :] - tmp[1:x, 1:y, :])
+    ldru = torch.abs(tmp[1:x, 0:y - 1, :] - tmp[0:x - 1, 1:y, :])
+
+    gdsum += F.pad(V,(0,0,0,0,1,0),"constant",0)
+    gdsum += F.pad(V,(0,0,0,0,0,1),"constant",0)
+    gdsum += F.pad(H,(0,0,0,1,0,0), 'constant', 0)
+    gdsum += F.pad(H,(0,0,1,0,0,0), 'constant', 0)
+    gdsum += F.pad(lurd,(0,0,0,1,0,1), 'constant', 0)
+    gdsum += F.pad(lurd,(0,0,1,0,1,0), 'constant', 0)
+    gdsum += F.pad(ldru, (0,0,0, 1, 0, 1), 'constant', 0)
+    gdsum += F.pad(ldru, (0,0,1, 0, 1, 0), 'constant', 0)
+
+    '''
+    gdsum[0:x - 1, :, :] += V
+    gdsum[1:x, :, :] += V
+    gdsum[:, 0:y - 1, :] += H
+    gdsum[:, 1:y, :] += H
+    gdsum[0:x - 1, 0:y - 1, :] += lurd
+    gdsum[1:x, 1:y, :] += lurd
+    gdsum[0:x - 1, 1:y, :] += ldru
+    gdsum[1:x, 0:y - 1, :] += ldru
+    '''
+    gdsum = gdsum.sum(dim=2) / 3
+    gdsum = gdsum / time
+    return gdsum
+
 
 
 def computeGD(npimg):
@@ -63,7 +105,7 @@ def generatePath(gdimg):
 
 
 def deleteOneRow(npimg):
-    gdimg = computeGD(npimg)
+    gdimg = computeGDTorch(npimg).numpy()
     energy, lastDir = generatePath(gdimg)
     #mask = np.full(gdimg.shape, True)
 
@@ -78,14 +120,19 @@ def deleteOneRow(npimg):
 
 if __name__ == '__main__':
     print('start, ', time.asctime(time.localtime(time.time())))
-    img = Image.open('D:\desk1.jpg')
+    img = Image.open('./pics/bird.jpg')
     #plt.figure(figsize=(19.2, 10.8))
     #plt.imshow(img)
     #plt.show()
 
     npimg = np.array(img)
     #showGDimg(computeGD(npimg))
+    #showGDimg(computeGDTorch(npimg).numpy())
+    for i in range(10):
+        computeGDTorch(npimg)
 
+    #showGDimg(computeGD(npimg))
+    '''
     # plt.imshow(img.convert('L'))
     print('ready, ', time.asctime(time.localtime(time.time())))
     for j in range(30):
@@ -93,5 +140,7 @@ if __name__ == '__main__':
             npimg = deleteOneRow(npimg)
             print('finished', j * 10 + i + 1, ", ", time.asctime(time.localtime(time.time())))
     newimg=Image.fromarray(npimg)
-    newimg.save('D:/pics/test.jpg')
+    newimg.save('./out/ori.jpg')
+    '''
+
 
