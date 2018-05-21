@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b63b306-9a5f-4502-a33b-6b4ff02326f2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pics/1080p.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pics/Broadway_tower_edit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pics/bird.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pics/bubble.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pics/ori.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/task1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/ori.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/out/ori.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/task1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,64 +14,80 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Seam_Carving$task1__1_.coverage" NAME="task1 (1) Coverage Results" MODIFIED="1526878390991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Seam_Carving$task1.coverage" NAME="task1 Coverage Results" MODIFIED="1526782050445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="task1.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/task1.py">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
+            <state relative-caret-position="452">
+              <caret line="81" column="7" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task1.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/task1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
               <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Seam-Carving10.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving10.pstat">
+      <file leaf-file-name="Seam-Carving21.pstat" pinned="false" current-in-tab="false">
+        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving21.pstat">
           <provider selected="true" editor-type-id="profiler-session-editor" />
         </entry>
       </file>
-      <file leaf-file-name="Seam-Carving9.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving9.pstat">
+      <file leaf-file-name="Seam-Carving20.pstat" pinned="false" current-in-tab="false">
+        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving20.pstat">
           <provider selected="true" editor-type-id="profiler-session-editor" />
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="ori.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pics/ori.jpg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="Seam-Carving13.pstat" pinned="false" current-in-tab="false">
+        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving13.pstat">
+          <provider selected="true" editor-type-id="profiler-session-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Seam-Carving12.pstat" pinned="false" current-in-tab="false">
+        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving12.pstat">
+          <provider selected="true" editor-type-id="profiler-session-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Image.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python3.6/site-packages/PIL/Image.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+            <state relative-caret-position="229">
+              <caret line="1931" selection-start-line="1931" selection-end-line="1931" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Seam-Carving8.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving8.pstat">
-          <provider selected="true" editor-type-id="profiler-session-editor" />
+      <file leaf-file-name="ori.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/out/ori.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file leaf-file-name="Seam-Carving7.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving7.pstat">
-          <provider selected="true" editor-type-id="profiler-session-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Seam-Carving6.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving6.pstat">
-          <provider selected="true" editor-type-id="profiler-session-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Seam-Carving5.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving5.pstat">
-          <provider selected="true" editor-type-id="profiler-session-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Seam-Carving3.pstat" pinned="false" current-in-tab="false">
-        <entry file="mock:///Users/lusirui/Library/Caches/PyCharm2018.1/snapshots/Seam-Carving3.pstat">
-          <provider selected="true" editor-type-id="profiler-session-editor" />
+      <file leaf-file-name="add_add_function.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/add_add_function.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -92,6 +100,7 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/task1.py" />
+        <option value="$PROJECT_DIR$/test/task1.py" />
       </list>
     </option>
   </component>
@@ -125,7 +134,17 @@
             <path>
               <item name="Seam-Carving" type="b2602c69:ProjectViewProjectNode" />
               <item name="Seam-Carving" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Seam-Carving" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Seam-Carving" type="462c0819:PsiDirectoryNode" />
               <item name="pics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Seam-Carving" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Seam-Carving" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -158,7 +177,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.task1 (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="Seam-Carving" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -173,6 +192,25 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="task1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Seam-Carving" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/task1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,8 +235,13 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <list>
+      <item itemvalue="Python.task1" />
+      <item itemvalue="Python.task1 (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.task1 (1)" />
         <item itemvalue="Python.task1" />
       </list>
     </recent_temporary>
@@ -218,13 +261,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="23" width="1641" height="1027" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="155" height="827" id="Documentation" sideWeight="0.13761468" side_tool="true" visible="true" weight="0.16385241" />
+      <window_info anchor="right" x="0" y="0" width="155" height="827" id="Documentation" sideWeight="0.13782051" side_tool="true" weight="0.16385241" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29677418" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29677418" />
+      <window_info anchor="bottom" id="Version Control" weight="0.32903227" />
       <window_info anchor="bottom" id="Python Console" weight="0.32903227" />
       <window_info anchor="right" id="Coverage" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" weight="0.32903227" />
@@ -232,7 +276,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12757973" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="SciView" sideWeight="0.86238533" visible="true" weight="0.16385241" />
+      <window_info active="true" anchor="right" id="SciView" sideWeight="0.86217946" visible="true" weight="0.12257661" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
@@ -244,6 +288,32 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.29677418" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" id="Remote Host" order="0" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12757973" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="2" weight="0.32903227" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="right" x="0" y="0" width="155" height="827" id="Documentation" order="1" sideWeight="0.13782051" side_tool="true" visible="true" weight="0.16385241" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Coverage" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.86217946" visible="true" weight="0.16385241" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="4" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.32903227" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -255,12 +325,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/task1.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/test/task1.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -271,19 +341,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/task1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
+        <state relative-caret-position="1269">
           <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/add_add_function.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="1930" selection-start-line="1930" selection-end-line="1930" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/PIL/Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="1931" selection-start-line="1931" selection-end-line="1931" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/ori.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="81" column="7" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="81" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pics/ori.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/task1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
