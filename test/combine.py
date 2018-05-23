@@ -122,12 +122,14 @@ def generatePathTorch(gdimg):
 
 def addKRow(npimg,npgray,k):
     npGD = npimg
+    pos=np.add.accumulate(np.ones((npimg.shape[0],npimg.shape[1]),dtype = np.uint32),axis = 1)-np.ones((npimg.shape[0],npimg.shape[1]),dtype = np.uint32)
     for j in range(20):
         for i in range(10):
-            npimg, npGD , npgray = addOneRow(npimg, npGD, npgray)
+            npimg, npGD , npgray,pos = addOneRow(npimg, npGD, npgray,pos)
             print('finished', j * 10 + i + 1, ", ", time.asctime(time.localtime(time.time())))
     return npimg
-def addOneRow(npimg,npGD,npgray):
+def addOneRow(npimg,npGD,npgray,pos):
+    #print(pos)
     gdimg = computeGDTorch(npGD).numpy()
     #gdimg = computeGDTorch(npGD)
     entropy = localEntropy(npgray).astype(np.float32)
@@ -137,21 +139,36 @@ def addOneRow(npimg,npGD,npgray):
 
     last = np.argmin(energy[-1])
     y = npimg.shape[1] + 1
+    retpos = np.ndarray((gdimg.shape[0], gdimg.shape[1] - 1),dtype=np.uint32)
     retGD = np.ndarray((gdimg.shape[0], gdimg.shape[1] - 1, 3),dtype=np.uint8)
     retimg = np.ndarray((gdimg.shape[0], y, 3),dtype=np.uint8)
     retgray = np.ndarray((gdimg.shape[0], gdimg.shape[1] - 1),dtype=np.uint8)
     for i in range(gdimg.shape[0] - 1, -1, -1):
-        #retimg[i] = np.insert(npimg[i],last + 1, np.average(npimg[i,max(last-1,0):min(last+2,y)],axis = 0),axis = 0)
-        retimg[i] = np.insert(npimg[i],last + 1, 0,axis = 0)
+        '''
+        sum = npimg[i,pos[i,last],:]
+        count = 1
+        if last - 1 >= 0 and pos[i,last - 1] >= 0:
+            count += 1
+            sum += npimg[i,pos[i,last - 1],:]
+        if last + 1 <pos.shape[1] and pos[i,last + 1] < npimg.shape[1]:
+            count += 1
+            sum += npimg[i,pos[i,last + 1],:]
+        ave = (sum / count).astype(np.uint8)
+        '''
+        #我不求平均值啦！！！！气死我了老是出问题！！！
+        retimg[i] = np.insert(npimg[i],pos[i,last] + 1, npimg[i,pos[i,last],:] ,axis = 0)
+        pos[i,last:] += np.ones(gdimg.shape[1]-last,dtype=np.uint32)
+        retpos[i] = np.delete(pos[i], last, axis=0)
+        #retimg[i] = np.insert(npimg[i],last + 1, 0,axis = 0)
         retGD[i] = np.delete(npGD[i], last, axis=0)
         retgray[i] = np.delete(npgray[i], last, axis=0)
         last = last + lastDir[i][last] - 1
-    return retimg, retGD,retgray #npimg[mask].reshape((gdimg.shape[0], gdimg.shape[1] - 1, 3))
+    return retimg, retGD,retgray,retpos #npimg[mask].reshape((gdimg.shape[0], gdimg.shape[1] - 1, 3))
 def deleteOneRow(npimg,npgray):
-    #gdimg = computeGDTorch(npimg).numpy()
-    gdimg = computeGDTorch(npimg)
-    #entropy = localEntropy(npgray).astype(np.float32)
-    #gdimg = torch.from_numpy(gdimg + entropy)
+    gdimg = computeGDTorch(npimg).numpy()
+    #gdimg = computeGDTorch(npimg)
+    entropy = localEntropy(npgray).astype(np.float32)
+    gdimg = torch.from_numpy(gdimg + entropy)
     energy, lastDir = generatePathTorch(gdimg)
     #mask = np.full(gdimg.shape, True)
 
@@ -168,7 +185,7 @@ def deleteOneRow(npimg,npgray):
 
 if __name__ == '__main__':
     print('start, ', time.asctime(time.localtime(time.time())))
-    img = Image.open('D:/pics/nightview.jpg')
+    img = Image.open('D:/pics/fuji.jpg')
     gray = img.convert('L')
     #plt.figure(figsize=(19.2, 10.8))
     #plt.imshow(img)
@@ -180,11 +197,10 @@ if __name__ == '__main__':
 
     # plt.imshow(img.convert('L'))
     #print('ready, ', time.asctime(time.localtime(time.time())))
-    #for j in range(30):
+    #for j in range(10):
     #    for i in range(10):
     #        npimg,npgray = deleteOneRow(npimg,npgray)
     #        print('finished', j * 10 + i + 1, ", ", time.asctime(time.localtime(time.time())))
-    #npimg = addKRow(npimg,npgray,100)
     npimg = addKRow(npimg,npgray,100)
     #print('finished, ', time.asctime(time.localtime(time.time())))
     newimg=Image.fromarray(npimg)
