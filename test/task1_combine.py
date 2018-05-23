@@ -187,7 +187,7 @@ def deleteOneRow(npimg,npgray):
 
 if __name__ == '__main__':
     print('start, ', time.asctime(time.localtime(time.time())))
-    img = Image.open('D:/pics/ori.jpg')
+    img = Image.open('../pics/1080p.jpg')
     gray = img.convert('L')
     #plt.figure(figsize=(19.2, 10.8))
     #plt.imshow(img)
