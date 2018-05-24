@@ -1,9 +1,10 @@
 from numba_test.energy import computeGD
+from numba_test.utils import transpose
 import numpy as np
 from numba import jit, njit, prange
 
 @njit(parallel=True,nogil=True)
-def generatePath(gdimg):
+def generateColumn(gdimg):
     x = gdimg.shape[0]
     y = gdimg.shape[1]
     lastDir = np.zeros((x,y),np.int8)
@@ -29,8 +30,8 @@ def generatePath(gdimg):
     return energy, lastDir
 
 @njit(parallel=True,nogil=True)
-def deleteOneRow(npimg):
-    energy, lastDir = generatePath(computeGD(npimg))
+def deleteOneColumn(npimg):
+    energy, lastDir = generateColumn(computeGD(npimg))
 
     lastArray = np.zeros((npimg.shape[0]),dtype=np.int16)
     lastArray[-1] = np.argmin(energy[-1])
@@ -38,10 +39,17 @@ def deleteOneRow(npimg):
         lastArray[i - 1] = lastArray[i] + lastDir[i,lastArray[i]]
     ret = np.zeros((npimg.shape[0], npimg.shape[1] - 1, 3), dtype=np.uint8)
     for i in prange(0, npimg.shape[0]):
-        for j in prange(0,lastArray[i]):
-            for k in range(3):
-                ret[i,j,k] = npimg[i,j,k]
-        for j in prange(lastArray[i], ret.shape[1]):
-            for k in range(3):
-                ret[i,j,k] = npimg[i,j+1,k]
+        for j in range(0,lastArray[i]):
+            ret[i, j, 0] = npimg[i, j, 0]
+            ret[i, j, 1] = npimg[i, j, 1]
+            ret[i, j, 2] = npimg[i, j, 2]
+        for j in range(lastArray[i], ret.shape[1]):
+            ret[i, j, 0] = npimg[i, j + 1, 0]
+            ret[i, j, 1] = npimg[i, j + 1, 1]
+            ret[i, j, 2] = npimg[i, j + 1, 2]
     return ret
+
+@njit(parallel=True,nogil=True)
+def deleteOneRow(npimg):
+    npimgt = transpose(npimg)
+    return transpose(deleteOneColumn(npimgt))
