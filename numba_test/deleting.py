@@ -1,5 +1,6 @@
-from numba_test.energy import computeGD
-from numba_test.utils import transpose
+from numba_test.gradient import computeGD
+from numba_test.utils import transposeImg, transposeGray
+from numba_test.energy import computeEnergy
 import numpy as np
 from numba import jit, njit, prange
 
@@ -30,8 +31,8 @@ def generateColumn(gdimg):
     return energy, lastDir
 
 @njit(parallel=True,nogil=True)
-def deleteOneColumn(npimg):
-    energy, lastDir = generateColumn(computeGD(npimg))
+def deleteOneColumn(npimg,npgray,gdratio):
+    energy, lastDir = generateColumn(computeEnergy(npimg, npgray,gdratio))
 
     lastArray = np.zeros((npimg.shape[0]),dtype=np.int16)
     lastArray[-1] = np.argmin(energy[-1])
@@ -50,6 +51,7 @@ def deleteOneColumn(npimg):
     return ret
 
 @njit(parallel=True,nogil=True)
-def deleteOneRow(npimg):
-    npimgt = transpose(npimg)
-    return transpose(deleteOneColumn(npimgt))
+def deleteOneRow(npimg,npgray,gdratio):
+    npimgt = transposeImg(npimg)
+    npgrayt = transposeGray(npgray)
+    return transposeImg(deleteOneColumn(npimgt, npgrayt,gdratio))

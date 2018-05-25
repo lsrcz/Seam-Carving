@@ -1,11 +1,11 @@
-from numba_test.energy import computeGD
-from numba_test.deleting import generatePath
+from numba_test.gradient import computeGD
+from numba_test.deleting import generateColumn
 import numpy as np
 from numba import jit, njit, prange
 
 @njit(parallel=True,nogil=True)
 def addOneRow(npimg,npnew,pos):
-    energy, lastDir = generatePath(computeGD(npimg))
+    energy, lastDir = generateColumn(computeGD(npimg))
 
     lastArray = np.zeros((npimg.shape[0]),dtype=np.int16)
     lastArray[-1] = np.argmin(energy[-1])
