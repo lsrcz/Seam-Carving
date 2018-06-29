@@ -11,6 +11,7 @@ def main():
     parser = OptionParser(usage)
     parser.add_option('-o', '--order', help='the seam order', action='store', type='string', default='col', dest='order')
     parser.add_option('-r', '--ratio', help='the ratio of gradient', action='store', type='float', default=0.5, dest='gdratio')
+    parser.add_option('-n', '--net', help='the deep network used', action='store', type='string', default='squeezenet', dest='net')
     options, args = parser.parse_args()
     print(options)
     if len(args) != 5:
