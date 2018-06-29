@@ -1,16 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from numba_test.delete.deep import deepdeleteOneColumn
-from numba_test.heatmap import heatmap
+from numba_test.energy.heatmap import heatmap
 from numba_test.retarget import *
 
 gdratio = 0.1
 
 
 def main():
+    '''
     print('start, ', time.asctime(time.localtime(time.time())))
     print('For better performance on large images, we didn\'t compile the numba modules ahead of time, so please wait when compiling the modules')
-    img = Image.open('../pics/5x4.png')
+    img = Image.open('../pics/dog.jpg')
     #img = img.resize((480,300))
 
     npimg = np.array(img)
@@ -30,23 +31,25 @@ def main():
     exit(0)
 
 
+
     #for i in range(300):
     #    a = computeGD(npimg)
     #    b = localEntropyDP1D(npgray)
     #    print(i, time.asctime(time.localtime(time.time())))
     for i in range(500):
         npgray = npimg2npgray(npimg)
-        heat = heatmap(npimg,i)[0]
+        heat = heatmap(npimg)[0]
         #print(heat)
         #print(computeEnergy(npimg, npgray,gdratio))
         npimg = deepdeleteOneColumn(npimg, npgray, gdratio,heat)
         print(i, time.asctime(time.localtime(time.time())))
-    newimg = Image.fromarray(npimg)
-    newimg.save('../out/result1111.jpg')
-    plt.imshow(newimg)
-    plt.show()
-    img = Image.open('../pics/dog2.jpg')
+        if i % 30 == 0:
+            plt.imshow(Image.fromarray(npimg))
+            plt.show()
 
+    plt.imshow(Image.fromarray(npimg))
+    plt.show()
+    //
     npimg = np.array(img)
     for i in range(500):
         npgray = npimg2npgray(npimg)
@@ -54,11 +57,13 @@ def main():
         #npgray = npimg2npgray(npimg)
         #npimg = deleteOneRow(npimg, npgray,gdratio)
         print(i, time.asctime(time.localtime(time.time())))
-        newimg = Image.fromarray(npimg)
-    newimg.save('../out/result1112.jpg')
+        if i % 30 == 0:
+            plt.imshow(Image.fromarray(npimg))
+            plt.show()
+    newimg = Image.fromarray(npimg)
     plt.imshow(newimg)
     plt.show()
-    '''
+    //
     print('ready, ', time.asctime(time.localtime(time.time())))
     for j in range(10):
         for i in range(10):
