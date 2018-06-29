@@ -10,9 +10,25 @@ gdratio = 0.1
 def main():
     print('start, ', time.asctime(time.localtime(time.time())))
     print('For better performance on large images, we didn\'t compile the numba modules ahead of time, so please wait when compiling the modules')
-    img = Image.open('../pics/large.jpg')
+    img = Image.open('../pics/5x4.png')
+    #img = img.resize((480,300))
 
     npimg = np.array(img)
+
+    plt.imshow(img)
+    plt.show()
+
+    plt.imshow(Image.fromarray(retargetOptimal(npimg, gdratio, 1, 1)))
+    plt.show()
+
+    plt.imshow(Image.fromarray(retargetColfirst(npimg, gdratio, 1, 1)))
+    plt.show()
+
+    plt.imshow(Image.fromarray(retargetRowfirst(npimg, gdratio, 1, 1)))
+    plt.show()
+
+    exit(0)
+
 
     #for i in range(300):
     #    a = computeGD(npimg)
