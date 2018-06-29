@@ -1,8 +1,9 @@
-from numba_test.gradient import computeGD
+from numba_test.seamfinding.gencol import generateColumn
 from numba_test.utils import transposeImg, transposeGray
-from numba_test.energy import computeEnergy
+from numba_test.energy.energy import computeEnergy
 import numpy as np
 from numba import jit, njit, prange
+
 
 @njit(parallel=True,nogil=True)
 def addOneColumn(npimg,npgray,npnew,pos,gdratio):

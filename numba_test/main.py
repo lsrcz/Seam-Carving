@@ -1,24 +1,16 @@
-from numba_test.config import *
-import time
-
-from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from numba_test.deleting import deleteOneRow, deleteOneColumn
-from numba_test.deepdelete import deepdeleteOneRow, deepdeleteOneColumn
-from numba_test.utils import npimg2npgray
-from numba_test.energy import computeEnergy, showEnergyImg
-from numba_test.entropy import localEntropyDP1D
-from numba_test.gradient import computeGD
+from numba_test.delete.deep import deepdeleteOneColumn
 from numba_test.heatmap import heatmap
-from numba_test.forward import deleteOneColumnForward
+from numba_test.retarget import *
 
 gdratio = 0.1
 
 
 def main():
     print('start, ', time.asctime(time.localtime(time.time())))
-    img = Image.open('../pics/dog2.jpg')
+    print('For better performance on large images, we didn\'t compile the numba modules ahead of time, so please wait when compiling the modules')
+    img = Image.open('../pics/large.jpg')
 
     npimg = np.array(img)
 
