@@ -33,22 +33,25 @@ preprocess = transforms.Compose([
 ])
 
 
-def heatmap(npimg):
-    net = models.densenet161(pretrained=True)
+def heatmap(npimg,count):
+    net = models.squeezenet1_1(pretrained=True)
+    #net = models.densenet169(pretrained=True)
     finalconv_name = 'features'
     net.eval()
     net._modules.get(finalconv_name).register_forward_hook(hook_feature)
+    #print(np.shape(features_blobs))
     params = list(net.parameters())
     weight_softmax = np.squeeze(params[-2].data.numpy())
     img_pil=Image.fromarray(np.uint8(npimg))
     img_tensor = preprocess(img_pil)
     img_variable = img_tensor.unsqueeze(0)
     logit = net(img_variable)
+    #print(np.shape(features_blobs))
 
     h_x = F.softmax(logit, dim=1).data.squeeze()
     probs, idx = h_x.sort(0, True)
     probs = probs.numpy()
     idx = idx.numpy()
     height, width, _ = npimg.shape
-    heatmap = returnCAM(features_blobs[0], weight_softmax, [idx[0]],height,width)
+    heatmap = returnCAM(features_blobs[count], weight_softmax, [idx[0]],height,width)
     return heatmap

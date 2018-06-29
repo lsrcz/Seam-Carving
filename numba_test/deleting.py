@@ -1,6 +1,6 @@
-from gradient import computeGD
-from utils import transposeImg, transposeGray
-from energy import computeEnergy
+from numba_test.gradient import computeGD
+from numba_test.utils import transposeImg, transposeGray
+from numba_test.energy import computeEnergy
 import numpy as np
 from numba import jit, njit, prange
 

@@ -1,6 +1,6 @@
 import numpy as np
 from numba import jit, njit, prange
-from utils import symmetricPadding2D4
+from numba_test.utils import symmetricPadding2D4
 import time
 
 def padding(img):

@@ -1,9 +1,9 @@
-from gradient import computeGD
-from utils import transposeImg, transposeGray
-from energy import computeDeepEnergy
+from numba_test.gradient import computeGD
+from numba_test.utils import transposeImg, transposeGray
+from numba_test.energy import computeDeepEnergy
 import numpy as np
 from numba import jit, njit, prange
-from deleting import generateColumn
+from numba_test.deleting import generateColumn
 @njit(parallel=True,nogil=True)
 def deepdeleteOneColumn(npimg,npgray, gdratio, heat):
     energy, lastDir = generateColumn(computeDeepEnergy(npimg,npgray, gdratio, heat))

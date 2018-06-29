@@ -1,23 +1,24 @@
-from config import *
+from numba_test.config import *
 import time
 
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
-from deleting import deleteOneRow, deleteOneColumn
-from deepdelete import deepdeleteOneRow, deepdeleteOneColumn
-from utils import npimg2npgray
-from energy import computeEnergy, showEnergyImg
-from entropy import localEntropyDP1D
-from gradient import computeGD
-from heatmap import heatmap
+from numba_test.deleting import deleteOneRow, deleteOneColumn
+from numba_test.deepdelete import deepdeleteOneRow, deepdeleteOneColumn
+from numba_test.utils import npimg2npgray
+from numba_test.energy import computeEnergy, showEnergyImg
+from numba_test.entropy import localEntropyDP1D
+from numba_test.gradient import computeGD
+from numba_test.heatmap import heatmap
+from numba_test.forward import deleteOneColumnForward
 
 gdratio = 0.1
 
 
 def main():
     print('start, ', time.asctime(time.localtime(time.time())))
-    img = Image.open('D:/pics/car1.jpg')
+    img = Image.open('../pics/dog2.jpg')
 
     npimg = np.array(img)
 
@@ -25,25 +26,30 @@ def main():
     #    a = computeGD(npimg)
     #    b = localEntropyDP1D(npgray)
     #    print(i, time.asctime(time.localtime(time.time())))
-    '''
-    for i in range(300):
+    for i in range(500):
         npgray = npimg2npgray(npimg)
-        heat = heatmap(npimg)[0]
+        heat = heatmap(npimg,i)[0]
+        #print(heat)
+        #print(computeEnergy(npimg, npgray,gdratio))
         npimg = deepdeleteOneColumn(npimg, npgray, gdratio,heat)
         print(i, time.asctime(time.localtime(time.time())))
     newimg = Image.fromarray(npimg)
-    newimg.save('D:/out/result.jpg')
-    '''
-    for i in range(300):
+    newimg.save('../out/result1111.jpg')
+    plt.imshow(newimg)
+    plt.show()
+    img = Image.open('../pics/dog2.jpg')
+
+    npimg = np.array(img)
+    for i in range(500):
         npgray = npimg2npgray(npimg)
-        npimg = deleteOneColumn(npimg, npgray,gdratio)
+        npimg = deleteOneColumnForward(npimg, npgray,gdratio)
         #npgray = npimg2npgray(npimg)
         #npimg = deleteOneRow(npimg, npgray,gdratio)
-        if i % 30 == 0 and NEED_DISPLAY:
-            showEnergyImg(computeEnergy(npimg, npgray,gdratio))
-            plt.imshow(Image.fromarray(npimg))
-            plt.show()
         print(i, time.asctime(time.localtime(time.time())))
+        newimg = Image.fromarray(npimg)
+    newimg.save('../out/result1112.jpg')
+    plt.imshow(newimg)
+    plt.show()
     '''
     print('ready, ', time.asctime(time.localtime(time.time())))
     for j in range(10):

@@ -1,7 +1,7 @@
-from config import *
+from numba_test.config import *
 
-from gradient import computeGD
-from entropy import localEntropyDP1D
+from numba_test.gradient import computeGD
+from numba_test.entropy import localEntropyDP1D
 
 import numpy as np
 from numba import njit, prange
@@ -27,7 +27,7 @@ def computeDeepEnergy(npimg, npgray, gdratio, heat):
 
     for i in prange(gd.shape[0]):
         for j in range(gd.shape[1]):
-            gd[i,j] = gd[i,j] * (1e-3) * gdratio + entropy[i,j] * (1-gdratio) + heat[i,j]
+            gd[i,j] = gd[i,j] * (1e-3) * gdratio + entropy[i,j] * (1-gdratio) + heat[i,j] * 10
     return gd
 
 def showEnergyImg(gdimg):
