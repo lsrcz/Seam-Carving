@@ -1,12 +1,11 @@
 from gradient import computeGD
-from utils import transposeImg, transposeGray
-from energy import computeEnergy
+from deleting import generateColumn
 import numpy as np
 from numba import jit, njit, prange
 
 @njit(parallel=True,nogil=True)
-def addOneColumn(npimg,npgray,npnew,pos,gdratio):
-    energy, lastDir = generateColumn(computeEnergy(npimg, npgray,gdratio))
+def dpaddOneRow(npimg,npnew,pos,gdimg):
+    energy, lastDir = generateColumn(gdimg)
 
     lastArray = np.zeros((npimg.shape[0]),dtype=np.int16)
     lastArray[-1] = np.argmin(energy[-1])
@@ -33,8 +32,3 @@ def addOneColumn(npimg,npgray,npnew,pos,gdratio):
             for k in range(3):
                 retnew[i,j,k] = npnew[i,j-1,k]
     return ret,retnew,retpos
-
-def addOneRow(npimg,npgray,gdratio):
-    npimgt = transposeImg(npimg)
-    npgrayt = transposeGray(npgray)
-    return transposeImg(addOneColumn(npimgt, npgrayt,gdratio))
