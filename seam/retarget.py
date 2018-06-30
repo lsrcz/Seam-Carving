@@ -2,12 +2,12 @@ import time
 
 from PIL import Image
 
-from numba_test.delete.generic import deleteOneColumnWithEnergyProvided
-from numba_test.delete.simple import deleteOneColumn, deleteOneRow
-from numba_test.delete.forward import deleteOneColumnForward
-from numba_test.energy.energy import computeEnergy
-from numba_test.seamfinding.gencol import generateColumn
-from numba_test.utils import npimg2npgray, transposeImg, transposeGray
+from seam.delete.generic import deleteOneColumnWithEnergyProvided
+from seam.delete.simple import deleteOneColumn, deleteOneRow
+from seam.delete.forward import deleteOneColumnForward
+from seam.energy.energy import computeEnergy
+from seam.seamfinding.gencol import generateColumn
+from seam.utils import npimg2npgray, transposeImg, transposeGray
 import numpy as np
 
 # assume r and c are smaller than the size of the image

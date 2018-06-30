@@ -1,9 +1,9 @@
 from numba import njit
 
-from numba_test.delete.generic import deleteOneColumnWithEnergyProvided
-from numba_test.energy.energy import computeEnergy
-from numba_test.seamfinding.gencolfwd import generateColumnForward
-from numba_test.utils import transposeImg, transposeGray
+from seam.delete.generic import deleteOneColumnWithEnergyProvided
+from seam.energy.energy import computeEnergy
+from seam.seamfinding.gencolfwd import generateColumnForward
+from seam.utils import transposeImg, transposeGray
 
 
 @njit(parallel=True,nogil=True)

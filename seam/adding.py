@@ -1,6 +1,6 @@
-from numba_test.seamfinding.gencol import generateColumn
-from numba_test.utils import transposeImg, transposeGray
-from numba_test.energy.energy import computeEnergy
+from seam.seamfinding.gencol import generateColumn
+from seam.utils import transposeImg, transposeGray
+from seam.energy.energy import computeEnergy
 import numpy as np
 from numba import jit, njit, prange
 

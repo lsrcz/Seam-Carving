@@ -3,7 +3,7 @@ from optparse import OptionParser
 from PIL import Image
 import numpy as np
 
-from numba_test.retarget import retargetRowfirst, retargetOptimal, retargetColfirst
+from seam.retarget import retargetRowfirst, retargetOptimal, retargetColfirst
 
 
 def main():

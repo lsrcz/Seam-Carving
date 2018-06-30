@@ -3,9 +3,9 @@ from PIL import Image
 from matplotlib import pyplot as plt
 from numba import njit, prange
 
-from numba_test.config import NEED_DISPLAY
-from numba_test.energy.entropy import localEntropyDP1D
-from numba_test.energy.gradient import computeGD
+from seam.config import NEED_DISPLAY
+from seam.energy.entropy import localEntropyDP1D
+from seam.energy.gradient import computeGD
 
 
 @njit(parallel=True,nogil=True)

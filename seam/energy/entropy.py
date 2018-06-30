@@ -1,7 +1,7 @@
 import numpy as np
 from numba import njit, prange
 
-from numba_test.utils import symmetricPadding2D4
+from seam.utils import symmetricPadding2D4
 
 
 def padding(img):

@@ -1,5 +1,5 @@
-from numba_test.energy.gradient import computeGD
-from numba_test.seamfinding.gencol import generateColumn
+from seam.energy.gradient import computeGD
+from seam.seamfinding.gencol import generateColumn
 import numpy as np
 from numba import jit, njit, prange
 

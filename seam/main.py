@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from numba_test.delete.deep import deepdeleteOneColumn
-from numba_test.energy.heatmap import heatmap
-from numba_test.retarget import *
+from seam.delete.deep import deepdeleteOneColumn
+from seam.energy.heatmap import heatmap
+from seam.retarget import *
 
 gdratio = 0.1
 
