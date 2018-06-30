@@ -13,7 +13,8 @@ def main():
     parser.add_option('-r', '--ratio', help='the ratio of gradient', action='store', type='float', default=0.5, dest='gdratio')
     parser.add_option('-n', '--net', help='the deep network used', action='store', type='string', default='squeezenet', dest='net')
     options, args = parser.parse_args()
-    print(options)
+    print('options', options)
+    print('args', args)
     if len(args) != 5:
         parser.error('incorrect number of arguments')
     filename = args[0]
@@ -29,15 +30,15 @@ def main():
         print('For better performance on large images, we didn\'t compile the numba modules ahead of time, so please wait when compiling the modules')
         if options.order == 'opt':
             r, c, _ = npimg.shape
-            if r >= rows and columns >= c:
+            if r >= rows and c >= columns:
                 npout = retargetOptimal(npimg, options.gdratio, rows, columns)
             else:
                 print('Optimal order only for removal, use column first instead')
-                npout = retargetColfirst(npimg, options.gdratio, rows, columns)
+                npout = retargetColfirst(npimg, options.gdratio, rows, columns, energyType, model=options.net)
         elif options.order == 'row':
-            npout = retargetRowfirst(npimg, options.gdratio, rows, columns)
+            npout = retargetRowfirst(npimg, options.gdratio, rows, columns, energyType, model=options.net)
         elif options.order == 'col':
-            npout = retargetRowfirst(npimg, options.gdratio, rows, columns)
+            npout = retargetColfirst(npimg, options.gdratio, rows, columns, energyType, model=options.net)
         else:
             parser.error('order should be col, row or opt')
         newimg = Image.fromarray(npout)
