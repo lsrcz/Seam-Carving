@@ -28,13 +28,13 @@ def _load_model(name='squeezenet'):
     return net
 
 
-def returnCAM(feature_conv, weight_softmax, class_idx, height, width):
+def returnCAM(feature_conv, weight_softmax, class_idx, height, width, weight):
     # generate the class activation maps upsample to 256x256
     size_upsample = (width, height)
     bz, nc, h, w = feature_conv.shape
     output_cam = []
     for idx in class_idx:
-        cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h*w)))
+        cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h*w))) * weight
         cam = cam.reshape(h, w)
         cam = cam - np.min(cam)
         cam_img = cam / np.max(cam)
@@ -72,5 +72,9 @@ def heatmap(npimg,modelname='squeezenet'):
     probs = probs.numpy()
     idx = idx.numpy()
     height, width, _ = npimg.shape
-    heatmap = returnCAM(_features_blobs[-1], weight_softmax, [idx[0]], height, width)
+    total = np.sum(probs[0:5])
+    heatmap = []
+    for i in range(0,5):
+        weight = probs[i] / total
+        heatmap += returnCAM(_features_blobs[-1], weight_softmax, [idx[i]], height, width, weight)
     return heatmap
